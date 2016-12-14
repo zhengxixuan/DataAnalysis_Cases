@@ -1,2 +1,3 @@
 # Learn-Python
-python exercises 
+
+Prepare for the new lesson !
