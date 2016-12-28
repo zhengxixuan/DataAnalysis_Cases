@@ -12,6 +12,8 @@ def rewind(f):
 
 def print_a_line(line_count, f):
     print line_count, f.readline(),
+# Add a , at the end of your print function
+# calls to avoid adding double \n to every line.
 
 current_file = open(input_file)
 
