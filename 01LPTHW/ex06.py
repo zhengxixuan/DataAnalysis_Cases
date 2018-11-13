@@ -1,23 +1,28 @@
-# defind x, y, binary, do_not
-x = "There are %d types of people." % 10
+# define a variable
+types_of_people = 10
+# make a string
+x = f"There are {types_of_people} types of people."
+
+# define a variable
 binary = "binary"
 do_not = "don't"
-y = "Those who know %s and those who %s." % (binary, do_not)
+# make a string
+y = f"Those who know {binary} and those who {do_not}."
 
-print x
-print y
+# print string
+print(x)
+print(y)
 
-# string x, y in new string
-print "I said: %r." % x
-print "I also said: '%s'." % y
+print(f"I said: {x}")
+print(f"I also said: '{y}'")
 
-hilarious = False
-joke_evaluation = "Isn't that joke so funny?! %r"
+hilarious = "False"
+joke_evaluation = "Isn't that joke so funny?! {}"
 
-# it's similar to x
-print joke_evaluation % hilarious
+print(joke_evaluation.format(hilarious))
+# 没看懂上面这个命令
 
 w = "This is the left side of..."
 e = "a string with a right side."
 
-print w + e
+print(w + e)
