@@ -28,3 +28,6 @@ out_file.close()
 # Python’s garbage collector will eventually 
 # destroy the object and close the open file for you,  
 # but the file may stay open for a while.
+
+# I can make this script one line long:
+# open(to_file, 'w').write(open(from_file).read())
