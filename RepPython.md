@@ -14,11 +14,12 @@
 
 - [英文期刊参考](https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng)
 
-## 官方文档
+## 综合文档
 
 - [The Python Tutorial 2.7](https://docs.python.org/2.7/tutorial/index.html)
 - [The Python Tutorial 3.7](https://docs.python.org/3/tutorial/index.html)
 - https://www.tutorialspoint.com/python/index.htm
+- https://planetpython.org/
 
 ## 视频课程
 
@@ -29,10 +30,16 @@
 
 ## 练习网站
 
-- https://leetcode.com/
 - https://www.codecademy.com/
+- https://www.codeschool.com/
+
+- https://www.codewars.com/
+
+- https://leetcode.com/
 
 ## 大牛博客
+
+- [不可错过的Python技术博客（网站）-董伟明](http://www.dongwm.com/archives/%E4%B8%8D%E5%8F%AF%E9%94%99%E8%BF%87%E7%9A%84Python%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/)
 
 - [ZoomQuiet](http://wiki.zoomquiet.io/pythonic/)
 
