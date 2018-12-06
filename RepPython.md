@@ -14,12 +14,11 @@
 
 - [英文期刊参考](https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng)
 
-## 综合文档
+## 官方文档
 
 - [The Python Tutorial 2.7](https://docs.python.org/2.7/tutorial/index.html)
 - [The Python Tutorial 3.7](https://docs.python.org/3/tutorial/index.html)
 - https://www.tutorialspoint.com/python/index.htm
-- https://planetpython.org/
 
 ## 视频课程
 
@@ -35,7 +34,7 @@
 
 - https://www.codewars.com/
 
-- https://leetcode.com/
+- https://leetcode.com/  算法
 
 ## 大牛博客
 
@@ -60,16 +59,31 @@
 ## 图书
 
 - [全世界程序员都说好的图书](https://www.douban.com/doulist/1244005/)
+- https://bop.mol.uno/ 简明 Python 教程 中文版
+- https://woodpecker.org.cn/diveintopython/toc/index.html  Python 从新手到专家
+- https://learnpythonthehardway.org/ 笨办法学 Python3
 
 ## 重要论坛
 
-- https://stackoverflow.com/
+- https://stackoverflow.com/ 
 - https://www.reddit.com/r/Python/
 - https://www.v2ex.com/go/python
 
+## 学习笔记
 
+- https://python-web-guide.readthedocs.io/zh/latest/base/basics.html 全面的 Python-web 开发手册
+- https://www.kawabangga.com/how-to-learn-python 如何学 Python？
+- https://prog-notes.yuanbin.me/  编程笔记
+- https://zhuanlan.zhihu.com/p/22275595 教你阅读Python开源项目代码
 
+## Python 资源库
 
+- https://wiki.woodpecker.org.cn/moin/%E9%A6%96%E9%A1%B5  啄木鸟社区
+- https://planetpython.org/  Python 星球
+- https://groups.google.com/forum/#!forum/python-cn 华蟒邮件列表
 
+## 编程思维
 
+- http://blog.zhgdg.org/2014-10/dm34-how2ask/  提问的智慧
+- https://wiki.woodpecker.org.cn/moin/HowToBeAProgrammer 如何成为程序员？
 
