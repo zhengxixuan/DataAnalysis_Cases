@@ -48,13 +48,14 @@
 ## GitHub 高关注库
 
 - https://github.com/vinta/awesome-python
-
 - https://github.com/jackfrued/Python-100-Days
 - https://github.com/TheAlgorithms/Python
 - https://github.com/norvig/pytudes
 - https://github.com/facert/awesome-spider
 - https://github.com/checkcheckzz/python-github-projects
 - https://github.com/PacktPublishing/Artificial-Intelligence-with-Python
+- https://github.com/ossu/computer-science 自学计算机科学
+- https://teachyourselfcs.com/  自学计算机科学
 
 ## 图书
 
@@ -62,6 +63,7 @@
 - https://bop.mol.uno/ 简明 Python 教程 中文版
 - https://woodpecker.org.cn/diveintopython/toc/index.html  Python 从新手到专家
 - https://learnpythonthehardway.org/ 笨办法学 Python3
+- [编程新手真言 ](http://dev.gameres.com/Program/Other/bcxszyforgameres/bcxszy/xisofts.sinaapp.com/@p=5.htm)
 
 ## 重要论坛
 
@@ -73,7 +75,6 @@
 
 - https://python-web-guide.readthedocs.io/zh/latest/base/basics.html 全面的 Python-web 开发手册
 - https://www.kawabangga.com/how-to-learn-python 如何学 Python？
-- https://prog-notes.yuanbin.me/  编程笔记
 - https://zhuanlan.zhihu.com/p/22275595 教你阅读Python开源项目代码
 
 ## Python 资源库
@@ -86,4 +87,5 @@
 
 - http://blog.zhgdg.org/2014-10/dm34-how2ask/  提问的智慧
 - https://wiki.woodpecker.org.cn/moin/HowToBeAProgrammer 如何成为程序员？
+- http://aosabook.org/en/index.html 开源系统的体系结构  工程学
 

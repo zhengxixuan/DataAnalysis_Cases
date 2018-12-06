@@ -41,7 +41,8 @@
 ## Python 工程师的实践策略
 
 - 配置 Python 开发环境
-- [敲完 Learn Python the Hard Way](https://github.com/zhengxixuan/ipython/tree/master/01LPTHW)
+- [敲完 Learn Python the Hard Way 3](https://github.com/zhengxixuan/ipython/tree/master/01LPTHW)
+- [用 Jupyter notebooks 练习 Python 3](https://github.com/jerry-git/learn-python3)
 
 ## 入门指南
 
