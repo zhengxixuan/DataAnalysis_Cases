@@ -71,7 +71,9 @@
 - https://www.reddit.com/r/Python/
 - https://www.v2ex.com/go/python
 
-## 学习笔记
+## Other Guides
+
+- https://pythonguidecn.readthedocs.io/zh/latest/ Python最佳实践指南 **如果只能读一本，那么读这一本就够了！**
 
 - https://python-web-guide.readthedocs.io/zh/latest/base/basics.html 全面的 Python-web 开发手册
 - https://www.kawabangga.com/how-to-learn-python 如何学 Python？

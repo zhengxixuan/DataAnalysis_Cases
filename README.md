@@ -49,4 +49,5 @@
 - [极简 Python 上手导念——by ZoomQuiet](http://wiki.zoomquiet.io/pythonic/MinimalistPyStart)
 - [编程入门指南](https://www.kancloud.cn/kancloud/intro-to-prog/52592)
 - [Developer-roadmap-chinese](https://github.com/goodjack/developer-roadmap-chinese)
+- [Python最佳实践指南](https://pythonguidecn.readthedocs.io/zh/latest/)
 
