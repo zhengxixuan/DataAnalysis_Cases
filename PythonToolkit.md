@@ -74,7 +74,7 @@
 ## Other Guides
 
 - https://pythonguidecn.readthedocs.io/zh/latest/ Python最佳实践指南 **如果只能读一本，那么读这一本就够了！**
-
+- https://github.com/PegasusWang/python_data_structures_and_algorithms  Python 数据结构与算法教程
 - https://python-web-guide.readthedocs.io/zh/latest/base/basics.html 全面的 Python-web 开发手册
 - https://www.kawabangga.com/how-to-learn-python 如何学 Python？
 - https://zhuanlan.zhihu.com/p/22275595 教你阅读Python开源项目代码
