@@ -91,3 +91,6 @@
 - https://wiki.woodpecker.org.cn/moin/HowToBeAProgrammer 如何成为程序员？
 - http://aosabook.org/en/index.html 开源系统的体系结构  工程学
 
+## 网站
+
+[The Hitchhiker’s Guide to Python! — The Hitchhiker's Guide to Python](https://docs.python-guide.org/)
