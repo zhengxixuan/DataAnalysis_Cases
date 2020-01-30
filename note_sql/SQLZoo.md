@@ -405,3 +405,490 @@ SELECT name, continent
                            AND y.name <> x.name);
 ```
 
+## 05. SUM and COUNT
+
+1. Show the total population of the world.
+
+```mysql
+SELECT SUM(population)
+  FROM world;
+```
+
+2. List all the continents - just once each.
+
+```mysql
+SELECT DISTINCT continent
+           FROM world;
+```
+
+3. Give the total GDP of Africa.
+
+```mysql
+SELECT SUM(gdp)
+  FROM world
+ WHERE continent = 'Africa';
+```
+
+4. How many countries have an area of at least 1000000.
+
+```mysql
+SELECT COUNT(name)
+  FROM world
+ WHERE area > 1000000;
+```
+
+5. What is the total population of ('Estonia', 'Latvia', 'Lithuania').
+
+```mysql
+SELECT SUM(population)
+  FROM world
+ WHERE name IN ('Estonia', 'Latvia', 'Lithuania');
+```
+
+6. For each continent show the continent and number of countries.
+
+```mysql
+  SELECT continent, COUNT(name)
+    FROM world
+GROUP BY continent;
+```
+
+7. For each continent show the continent and number of countries with populations of at least 10 million.
+
+```mysql
+  SELECT continent, COUNT(name)
+    FROM world
+   WHERE population > 10000000
+GROUP BY continent;
+```
+
+8. List the continents that have a total population of at least 100 million.
+
+```mysql
+  SELECT continent
+    FROM world
+GROUP BY continent
+  HAVING SUM(population) > 100000000;
+```
+
+## 06. JOIN
+
+1. Modify the example to show the matchid and player name for all goals scored by Germany. To identify German players, check for: teamid = 'GER'
+
+```mysql
+SELECT matchid, player
+  FROM goal
+ WHERE teamid = 'GER';
+```
+
+2. Show id, stadium, team1, team2 for just game 1012.
+
+```mysql
+SELECT id, stadium, team1, team2
+  FROM game
+ WHERE id = 1012;
+```
+
+3. Modify the code to show the player, teamid, stadium and mdate and for every German goal.
+
+```mysql
+SELECT player, teamid, stadium, mdate
+  FROM game JOIN goal ON id = matchid
+ WHERE teamid = 'GER';
+```
+
+4. Show the team1, team2 and player for every goal scored by a player called Mario player LIKE 'Mario%'
+
+```mysql
+SELECT team1, team2, player
+  FROM game JOIN goal ON id = matchid
+ WHERE player LIKE 'Mario%';
+```
+
+5. Show player, teamid, coach, gtime for all goals scored in the first 10 minutes gtime<=10
+
+```mysql
+SELECT player, teamid, coach, gtime
+  FROM goal JOIN eteam ON teamid = id
+ WHERE gtime <= 10;
+```
+
+6. List the the dates of the matches and the name of the team in which 'Fernando Santos' was the team1 coach.
+
+```mysql
+SELECT mdate, teamname
+  FROM game JOIN eteam ON team1 = eteam.id
+ WHERE coach = 'Fernando Santos';
+```
+
+7. List the player for every goal scored in a game where the stadium was 'National Stadium, Warsaw'.
+
+```mysql
+SELECT player
+  FROM goal JOIN game ON matchid = id
+ WHERE stadium = 'National Stadium, Warsaw';
+```
+
+8. The example query shows all goals scored in the Germany-Greece quarterfinal. Instead show the name of all players who scored a goal against Germany.
+
+```mysql
+SELECT DISTINCT player
+  FROM goal JOIN game ON matchid = id
+ WHERE (team1 = 'GER' OR team2 = 'GER')
+   AND teamid != 'GER';
+```
+
+9. Show teamname and the total number of goals scored.
+
+```mysql
+  SELECT teamname, COUNT(teamid)
+    FROM eteam JOIN goal ON eteam.id = teamid
+GROUP BY teamname;
+```
+
+10. Show the stadium and the number of goals scored in each stadium.
+
+```mysql
+  SELECT stadium, COUNT(stadium)
+    FROM game JOIN goal ON id = matchid
+GROUP BY stadium;
+```
+
+11. For every match involving 'POL', show the matchid, date and the number of goals scored.
+
+```mysql
+  SELECT matchid, mdate, COUNT(*)
+    FROM game JOIN goal ON id = matchid
+   WHERE (team1 = 'POL' OR team2 = 'POL')
+GROUP BY matchid, mdate;
+```
+
+12. For every match where 'GER' scored, show matchid, match date and the number of goals scored by 'GER'.
+
+```MYSQL
+  SELECT matchid, mdate, COUNT(*)
+    FROM game JOIN goal ON id = matchid
+   WHERE (team1 = 'GER' OR team2 = 'GER')
+     AND teamid = 'GER'
+GROUP BY matchid, mdate;
+```
+
+13. List every match with the goals scored by each team as shown. Sort your result by mdate, matchid, team1 and team2.
+
+```mysql
+   SELECT mdate,
+          team1,
+          SUM(CASE WHEN teamid = team1 THEN 1 ELSE 0 END) score1,
+          team2,
+          SUM(CASE WHEN teamid = team2 THEN 1 ELSE 0 END) score2
+
+     FROM game
+LEFT JOIN goal ON id = matchid
+
+ GROUP BY mdate, team1, team2
+ ORDER BY mdate, team1, team2;
+```
+
+## 07. More JOIN Operations
+
+1. List the films where the yr is 1962. Show id, title.
+
+```mysql
+SELECT id, title
+  FROM movie
+ WHERE yr = 1962;
+```
+
+2. Give year of 'Citizen Kane'.
+
+```mysql
+SELECT yr
+  FROM movie
+ WHERE title = 'Citizen Kane';
+```
+
+3. List all of the Star Trek movies, include the id, title and yr (all of these movies include the words Star Trek in the title). Order results by year.
+
+```mysql
+  SELECT id, title, yr
+    FROM movie
+   WHERE title LIKE 'Star Trek%'
+ORDER BY yr;
+```
+
+4. What id number does the actor 'Glenn Close' have?
+
+```mysql
+SELECT id
+  FROM actor
+ WHERE name = 'Glenn Close';
+```
+
+5. What is the id of the film 'Casablanca'?
+
+```mysql
+SELECT id
+  FROM movie
+ WHERE title = 'Casablanca';
+```
+
+6. Obtain the cast list for 'Casablanca'.
+
+```mysql
+SELECT name
+  FROM movie
+  JOIN casting ON movie.id = casting.movieid
+  JOIN actor   ON actor.id = casting.actorid
+ WHERE title= 'Casablanca';
+```
+
+7. Obtain the cast list for the film 'Alien'.
+
+```mysql
+SELECT name
+  FROM movie
+  JOIN casting ON movie.id = casting.movieid
+  JOIN actor   ON actor.id = casting.actorid
+ WHERE title = 'Alien';
+```
+
+8. List the films in which 'Harrison Ford' has appeared.
+
+```mysql
+SELECT title
+  FROM movie
+  JOIN casting ON movie.id = casting.movieid
+  JOIN actor   ON actor.id = casting.actorid
+ WHERE actor.name = 'Harrison Ford';
+```
+
+9. List the films where 'Harrison Ford' has appeared - but not in the starring role. Note: the 'ord' field of casting gives the position of the actor. If 'ord=1' then this actor is in the starring role.
+
+```mysql
+SELECT title
+  FROM movie
+  JOIN casting ON movie.id = casting.movieid
+  JOIN actor   ON actor.id = casting.actorid
+ WHERE actor.name = 'Harrison Ford'
+   AND ord != 1;
+```
+
+10. List the films together with the leading star for all 1962 films.
+
+```mysql
+SELECT title, name
+  FROM movie
+  JOIN casting ON movie.id = casting.movieid
+  JOIN actor   ON actor.id = casting.actorid
+ WHERE yr = 1962
+   AND ord = 1;
+```
+
+11. Which were the busiest years for 'Rock Hudson', show the year and the number of movies he made each year for any year in which he made more than 2 movies.
+
+```mysql
+  SELECT yr, COUNT(title)
+    FROM movie
+    JOIN casting ON movie.id = movieid
+    JOIN actor   ON actorid = actor.id
+   WHERE name = 'Rock Hudson'
+GROUP BY yr
+  HAVING COUNT(title) > 1;
+```
+
+12. List the film title and the leading actor for all of the films 'Julie Andrews' played in.
+
+```mysql
+SELECT title, name
+  FROM casting
+  JOIN movie ON casting.movieid = movie.id AND ord = 1
+  JOIN actor ON casting.actorid = actor.id
+ WHERE movie.id IN
+       (SELECT movieid
+          FROM casting
+         WHERE actorid IN
+         (SELECT id FROM actor
+           WHERE name = 'Julie Andrews'));
+```
+
+13. Obtain a list, in alphabetical order, of actors who've had at least 15 **starring** roles.
+
+```mysql
+  SELECT name
+    FROM actor
+    JOIN casting ON casting.actorid = actor.id
+    JOIN movie   ON casting.movieid = movie.id
+   WHERE actorid IN
+         (SELECT actorid
+            FROM casting
+           WHERE ord = 1
+        GROUP BY actorid
+          HAVING COUNT(actorid) >= 15)
+GROUP BY name;
+```
+
+14. List the films released in the year 1978 ordered by the number of actors in the cast, then by title.
+
+```mysql
+  SELECT title, COUNT(actorid)
+    FROM movie
+    JOIN casting ON casting.movieid = movie.id
+    JOIN actor   ON casting.actorid = actor.id
+   WHERE yr = 1978
+GROUP BY title
+ORDER BY COUNT(actorid) DESC, title;
+```
+
+15. List all the people who have worked with 'Art Garfunkel'.
+
+```mysql
+SELECT DISTINCT name
+  FROM actor
+  JOIN casting ON casting.actorid = actor.id
+  JOIN movie   ON casting.movieid = movie.id
+ WHERE name != 'Art Garfunkel'
+   AND movieid IN
+       (SELECT movieid
+          FROM casting
+          JOIN actor ON casting.actorid = actor.id
+          JOIN movie ON casting.movieid = movie.id
+         WHERE name = 'Art Garfunkel');
+```
+
+## 08. Using NULL
+
+1. List the teachers who have NULL for their department.
+
+```mysql
+SELECT name
+  FROM teacher
+ WHERE dept IS NULL;
+```
+
+2. Note the INNER JOIN misses the teachers with no department and the departments with no teacher.
+
+```mysql
+    SELECT teacher.name, dept.name
+      FROM teacher
+INNER JOIN dept ON teacher.dept = dept.id;
+```
+
+3. Use a different JOIN so that all teachers are listed.
+
+```mysql
+   SELECT teacher.name, dept.name
+     FROM teacher
+LEFT JOIN dept ON teacher.dept = dept.id;
+```
+
+4. Use a different JOIN so that all departments are listed.
+
+```mysql
+    SELECT teacher.name, dept.name
+      FROM teacher
+RIGHT JOIN dept on teacher.dept = dept.id;
+```
+
+5. Use COALESCE to print the mobile number. Use the number '07986 444 2266' if there is no number given. Show teacher name and mobile number or '07986 444 2266'.
+
+```mysql
+SELECT name, COALESCE(mobile, '07986 444 2266')
+  FROM teacher;
+```
+
+6. Use the COALESCE function and a LEFT JOIN to print the teacher name and department name. Use the string 'None' where there is no department.
+
+```mysql
+   SELECT teacher.name, COALESCE(dept.name, 'None') AS deptartment
+     FROM teacher
+LEFT JOIN dept ON teacher.dept = dept.id;
+```
+
+7. Use COUNT to show the number of teachers and the number of mobile phones.
+
+```mysql
+SELECT COUNT(name)   AS teachers,
+       COUNT(mobile) AS mobiles
+  FROM teacher;
+```
+
+8. Use COUNT and GROUP BY dept.name to show each department and the number of staff. Use a RIGHT JOIN to ensure that the Engineering department is listed.
+
+```mysql
+    SELECT dept.name, COUNT(teacher.dept) AS staff
+      FROM teacher
+RIGHT JOIN dept ON teacher.dept = dept.id
+  GROUP BY dept.name;
+```
+
+9. Use CASE to show the name of each teacher followed by 'Sci' if the teacher is in dept 1 or 2 and 'Art' otherwise.
+
+```mysql
+SELECT name,
+       CASE WHEN dept = 1 OR dept = 2
+            THEN 'Sci'
+            ELSE 'Art'
+        END AS dept
+  FROM teacher;
+```
+
+10. Use CASE to show the name of each teacher followed by 'Sci' if the teacher is in dept 1 or 2, show 'Art' if the teacher's dept is 3 and 'None' otherwise.
+
+```mysql
+SELECT name,
+       CASE WHEN dept = 1 OR dept = 2
+            THEN 'Sci'
+            WHEN dept = 3
+            THEN 'Art'
+            ELSE 'None'
+        END AS dept
+  FROM teacher;
+```
+
+## 09. Self JOIN
+
+1. How many stops are in the database.
+
+```mysql
+SELECT COUNT(DISTINCT stop)
+  FROM route
+  JOIN stops ON route.stop = stops.id;
+```
+
+2. Find the id value for the stop 'Craiglockhart'.
+
+```mysql
+SELECT id
+  FROM stops
+ WHERE name = 'Craiglockhart';
+```
+
+3. Give the id and the name for the stops on the '4' 'LRT' service.
+
+```mysql
+SELECT id, name
+  FROM stops
+  JOIN route ON stops.id = route.stop
+ WHERE num = '4'
+   AND company = 'LRT';
+```
+
+4. The query shown gives the number of routes that visit either London Road (149) or Craiglockhart (53). Run the query and notice the two services that link these stops have a count of 2. Add a HAVING clause to restrict the output to these two routes.
+
+```mysql
+  SELECT company, num, COUNT(*)
+    FROM route
+   WHERE stop = 149 OR stop = 53
+GROUP BY company, num
+  HAVING COUNT(*) = 2;
+```
+
+5. Execute the self join shown and observe that b.stop gives all the places you can get to from Craiglockhart, without changing routes. Change the query so that it shows the services from Craiglockhart to London Road.
+
+```mysql
+SELECT a.company, a.num, a.stop, b.stop
+  FROM route a
+  JOIN route b ON a.company = b.company AND a.num = b.num
+ WHERE a.stop = 53
+   AND b.stop = 149;
+```
