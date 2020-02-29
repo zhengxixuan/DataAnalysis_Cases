@@ -29,7 +29,7 @@
 ### Python 入门
 
 - [简明 Python 教程](https://bop.mol.uno)  A Byte of Python 中文版
-- 
+- Think Python 2
 
 
 
