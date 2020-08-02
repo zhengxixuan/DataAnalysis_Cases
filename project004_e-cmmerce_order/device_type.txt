@@ -1,0 +1,6 @@
+id,deviceType
+1,PC
+2,Android
+3,iPhone
+4,Wap
+5,other
